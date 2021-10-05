@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DieRoller3000">
         <activity
+            android:name=".Characters"
+            android:exported="true" />
+        <activity
+            android:name=".DicePage"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

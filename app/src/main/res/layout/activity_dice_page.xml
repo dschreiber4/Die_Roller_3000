@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DicePage">
+
+    <TextView
+        android:id="@+id/choose_your_Dice_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/choose_your_dice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/char_RGroup"
+        android:layout_width="149dp"
+        android:layout_height="269dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choose_your_Dice_textView">
+
+        <RadioButton
+            android:id="@+id/rb_4_sider"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:text="@string/_4_sider"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <RadioButton
+            android:id="@+id/rb_6_sider"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:text="@string/_6_sider"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <RadioButton
+            android:id="@+id/rb_8_sider"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:text="@string/_8_sider"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <RadioButton
+            android:id="@+id/rb_10_sider"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:text="@string/_10_sider"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <RadioButton
+            android:id="@+id/rb_12_sider"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:text="@string/_12_sider"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <RadioButton
+            android:id="@+id/rb_20_sider"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:text="@string/_20_sider"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <RadioButton
+            android:id="@+id/rb_100_sider"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:text="@string/_100_sider_percent"
+            tools:ignore="TouchTargetSizeCheck" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/num_dice_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/number_of_die"
+        app:layout_constraintStart_toEndOf="@+id/choose_your_Dice_textView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/dice_spinner"
+        android:layout_width="90dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="24dp"
+        android:entries="@array/num_die_spinner"
+        app:layout_constraintStart_toEndOf="@+id/char_RGroup"
+        app:layout_constraintTop_toBottomOf="@+id/num_dice_textView"
+        tools:ignore="TouchTargetSizeCheck"
+        tools:listitem="@android:layout/simple_spinner_item" />
+
+    <Button
+        android:id="@+id/roll_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/roll"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/char_RGroup"
+        app:layout_constraintTop_toBottomOf="@+id/dice_spinner"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/roll_result_textView"
+        android:layout_width="118dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="20dp"
+        android:background="#E1DCDC"
+        android:text="@string/result_text"
+        android:textColor="#616161"
+        app:layout_constraintStart_toEndOf="@+id/char_RGroup"
+        app:layout_constraintTop_toBottomOf="@+id/roll_button" />
+</androidx.constraintlayout.widget.ConstraintLayout>
