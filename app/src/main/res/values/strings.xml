@@ -3,17 +3,19 @@
     <string name="welcome_textview_text">Welcome to Die Roller 3000!</string>
     <string name="dice">Dice</string>
     <string name="characters">Characters</string>
-    <string name="_4_sider">4 Sider</string>
-    <string name="_6_sider">6 Sider</string>
-    <string name="_10_sider">10 Sider</string>
-    <string name="_12_sider">12 Sider</string>
-    <string name="_20_sider">20 Sider</string>
-    <string name="_100_sider_percent">100 Sider/Percent</string>
+    <string name="_4_sided">D4</string>
+    <string name="_6_sided">D6</string>
+    <string name="_8_sided">D8</string>
+    <string name="_10_sided">D10</string>
+    <string name="_12_sided">D12</string>
+    <string name="_20_sided">D20</string>
+    <string name="_100_sided_percent">D100</string>
+
     <string name="choose_your_dice">Choose your dice:</string>
-    <string name="_8_sider">8 Sider</string>
     <string name="number_of_die">Number of Die:</string>
     <string name="roll">Roll</string>
-    <string name="result_text">result text here</string>
+    <string name="result_text"> </string>
+
 
     <string-array name="num_die_spinner">
         <item>1</item>
