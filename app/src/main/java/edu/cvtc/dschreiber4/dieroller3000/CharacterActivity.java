@@ -9,7 +9,6 @@ import androidx.loader.content.CursorLoader;
 import androidx.loader.content.Loader;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -25,10 +24,7 @@ import edu.cvtc.dschreiber4.dieroller3000.DieRoller3000DatabaseContract.Characte
 public class CharacterActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>{
 
     // Member variables
-    private DieRoller3000OpenHelper mDbOpenHelper;
-    private RecyclerView mRecyclerItems;
-    private LinearLayoutManager mCharacterLayoutManager;
-    private CharacterRecyclerAdapter mCharacterRecyclerAdapter;
+
 
     //Constants
     public static final String CHARACTER_ID =
@@ -39,6 +35,8 @@ public class CharacterActivity extends AppCompatActivity implements LoaderManage
             "edu.cvtc.dschreiber4.dieroller3000.ORIGINAL_CHARACTER_DESCRIPTION";
     public static final int ID_NOT_SET = -1;
     public static final int LOADER_CHARACTER = 0;
+    // Boolean to check if the 'onCreateLoader' method has run
+    private boolean mIsCreated = false;
 
     //Initialize the new CharacterInfo to empty
     private CharacterInfo mCharacter = new CharacterInfo(0, "", "");
@@ -54,7 +52,10 @@ public class CharacterActivity extends AppCompatActivity implements LoaderManage
     //Objects
     private EditText mTextCharacterName;
     private EditText mTextCharacterDescription;
-   // private DieRoller3000OpenHelper mDbOpenHelper;
+    private DieRoller3000OpenHelper mDbOpenHelper;
+    private RecyclerView mRecyclerItems;
+    private LinearLayoutManager mCharacterLayoutManager;
+    private CharacterRecyclerAdapter mCharacterRecyclerAdapter;
     private Cursor mCharacterCursor;
 
     @Override
@@ -64,12 +65,43 @@ public class CharacterActivity extends AppCompatActivity implements LoaderManage
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        //Get the latest data from the DB
+        loadCharacter();
+    }
+
+    private void loadCharacter() {
+        //Open the DB in Read mode
+        SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
+
+        //Create a list of columns from the DB to return
+        String[] courseColumns = {
+                CharacterInfoEntry.COLUMN_CHARACTER_NAME,
+                CharacterInfoEntry.COLUMN_CHARACTER_DESCRIPTION,
+                CharacterInfoEntry._ID
+        };
+
+        //Create the order by field with RecyclerAdapter
+        String characterOrderBy = CharacterInfoEntry.COLUMN_CHARACTER_NAME;
+
+        //Populate the cursor
+        final Cursor characterCursor = db.query(CharacterInfoEntry.TABLE_NAME, courseColumns,
+                null, null, null, null,
+                characterOrderBy);
+
+        //Associate the cursor with RecyclerAdapter
+        mCharacterRecyclerAdapter.changeCursor(characterCursor);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_main);
 
         //DBOpenHelper instance
         mDbOpenHelper = new DieRoller3000OpenHelper(this);
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
 
@@ -112,10 +144,10 @@ public class CharacterActivity extends AppCompatActivity implements LoaderManage
         mCharacterRecyclerAdapter = new CharacterRecyclerAdapter(this, null);
 
         // Display the courses
-        displayCourses();
+        displayCharacter();
     }
 
-    private void displayCourses() {
+    private void displayCharacter() {
         mRecyclerItems.setLayoutManager(mCharacterLayoutManager);
         mRecyclerItems.setAdapter(mCharacterRecyclerAdapter);
     }
@@ -191,16 +223,20 @@ public class CharacterActivity extends AppCompatActivity implements LoaderManage
             }
         };    task.loadInBackground();
     }
-
+/*
     private void displayCharacter() {
         //Get the values based on column positions
         String characterName = mCharacterCursor.getString(mCharacterNamePosition);
         String characterDescription = mCharacterCursor.getString(mCharacterDescriptionPosition);
 
+
+
         //Use the info to populate the layout
-        mTextCharacterName.setText(characterName);
-        mTextCharacterDescription.setText(characterDescription);
+        mRecyclerItems.setLayoutManager(mCharacterLayoutManager);
+        mRecyclerItems.setAdapter(mCharacterRecyclerAdapter);
     }
+
+ */
 
     private void restoreOriginalCharacterValues(Bundle savedInstanceState) {
         //Get original values for existing character
@@ -274,12 +310,34 @@ public class CharacterActivity extends AppCompatActivity implements LoaderManage
     @NonNull
     @Override
     public Loader<Cursor> onCreateLoader(int id, @Nullable Bundle args) {
-        // Create a local cursor loader
+        // Create new cursor loader
         CursorLoader loader = null;
 
-        //Check if the id is in loader
         if (id == LOADER_CHARACTER) {
-            loader = createLoaderCharacter();
+            loader = new CursorLoader(this){
+
+                @Override
+                public Cursor loadInBackground() {
+                    mIsCreated = true;
+
+                    //Open the DB in read mode
+                    SQLiteDatabase db = mDbOpenHelper.getReadableDatabase();
+
+                    // Create a list of columns you want to return.
+                    String[] characterColumns = {
+                            CharacterInfoEntry.COLUMN_CHARACTER_NAME,
+                            CharacterInfoEntry.COLUMN_CHARACTER_DESCRIPTION,
+                            CharacterInfoEntry._ID};
+
+                    // Create an order by field for sorting purposes
+                    String characterOrderBy = CharacterInfoEntry.COLUMN_CHARACTER_NAME;
+
+                    // Populate your cursor with the results of the query
+                    return db.query(CharacterInfoEntry.TABLE_NAME, characterColumns,
+                            null, null, null, null,
+                            characterOrderBy);
+                }
+            };
         }
         return loader;
     }

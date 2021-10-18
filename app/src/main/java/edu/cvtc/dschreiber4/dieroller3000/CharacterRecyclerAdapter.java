@@ -45,6 +45,22 @@ public class CharacterRecyclerAdapter extends RecyclerView.Adapter<CharacterRecy
         }
     }
 
+    public void changeCursor(Cursor cursor) {
+        // close cursor
+        if (mCursor != null) {
+            mCursor.close();
+        }
+
+        //Create new cursor
+        mCursor = cursor;
+
+        //Get Positions of columns
+        populateColumnPositions();
+
+        //Tell Activity there has been a change
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
