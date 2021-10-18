@@ -5,9 +5,13 @@
       <map>
         <entry key="app/src/main/res/drawable/btn_dropdown_normal.xml" value="0.16944444444444445" />
         <entry key="app/src/main/res/drawable/shape_drop_down_normal.xml" value="0.11296296296296296" />
-        <entry key="app/src/main/res/layout/activity_characters.xml" value="0.22644927536231885" />
+        <entry key="app/src/main/res/layout/activity_character.xml" value="0.30027173913043476" />
+        <entry key="app/src/main/res/layout/activity_character_main.xml" value="0.296195652173913" />
+        <entry key="app/src/main/res/layout/activity_characters.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_dice_page.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/content_layout.xml" value="0.30027173913043476" />
+        <entry key="app/src/main/res/layout/item_list.xml" value="0.30027173913043476" />
       </map>
     </option>
   </component>

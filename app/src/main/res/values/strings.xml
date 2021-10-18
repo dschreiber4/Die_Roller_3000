@@ -15,6 +15,10 @@
     <string name="number_of_die">Number of Die:</string>
     <string name="roll">Roll</string>
     <string name="result_text"> </string>
+    <string name="add_new_character">Add New Character</string>
+    <string name="character_name">Character Name:</string>
+    <string name="character_description">Character Description:</string>
+    <string name="add">add</string>
 
 
     <string-array name="num_die_spinner">
