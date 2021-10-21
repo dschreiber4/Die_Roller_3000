@@ -30,6 +30,22 @@ public class DicePage extends AppCompatActivity {
             public void onClick(View v) {
                 RadioGroup RG = findViewById(R.id.dice_RGroup);
                 TextView result = findViewById(R.id.roll_result_textView);
+                /*
+                int selectedRadioButtonID = RG.getCheckedRadioButtonId();
+                // If nothing is selected from Radio Group, then it return -1
+                if (selectedRadioButtonID != -1) {
+                    RadioButton selectedRadioButton = findViewById(selectedRadioButtonID);
+                    String selectedRadioButtonText = selectedRadioButton.getText().toString();
+                    answerList.add(selectedRadioButtonText);
+                } else {
+                    Toast.makeText(this, "select radio button", Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+
+                 */
+
+
+
 
 //TODO spinner value to loop
                 /*
@@ -38,7 +54,7 @@ public class DicePage extends AppCompatActivity {
                 for (int i = 0; i < n; i++) {}
 
                  */
-
+/*
                     switch (RG.getCheckedRadioButtonId()) {
                         case R.id.rb_4_sided:
                             dieResult = (int) (4 * random()) + 1;
@@ -72,12 +88,12 @@ public class DicePage extends AppCompatActivity {
                             dieResult = 0;
                             result.setText("Choose a Die");
 
-
-
                 }
+
+ */
             }
 
-            ;
+
 
         });
     }

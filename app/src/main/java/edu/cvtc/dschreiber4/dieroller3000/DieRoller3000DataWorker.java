@@ -18,6 +18,7 @@ public class DieRoller3000DataWorker {
     //Take in parameters name and description
     private void insertCharacter(String name, String description) {
         ContentValues values = new ContentValues();
+
         values.put(CharacterInfoEntry.COLUMN_CHARACTER_NAME, name);
         values.put(CharacterInfoEntry.COLUMN_CHARACTER_DESCRIPTION, description);
 
@@ -27,7 +28,6 @@ public class DieRoller3000DataWorker {
     //Populate the db with initial data
     public void insertCharacter() {
         insertCharacter("Fatal Exception", "Lvl 9 Druid.");
-
         insertCharacter("Web 1 - HTML & CSS", "Introductory HTML course");
         insertCharacter("Programming Fundamentals", "Introductory Programming Course");
         insertCharacter("Database 1", "Introductory Database Course");

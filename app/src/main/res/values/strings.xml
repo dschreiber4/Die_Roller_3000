@@ -19,6 +19,9 @@
     <string name="character_name">Character Name:</string>
     <string name="character_description">Character Description:</string>
     <string name="add">add</string>
+    <string name="cancel">Cancel</string>
+    <string name="menu_cancel_text">menu_cancel_text</string>
+    <string name="char_roll">Roll</string>
 
 
     <string-array name="num_die_spinner">
@@ -28,6 +31,26 @@
         <item>4</item>
         <item>5</item>
         <item>6</item>
+    </string-array>
+
+    <string-array name="numDiceSpinner">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+
+    <string-array name="numSidesSpinner">
+        <item>4</item>
+        <item>6</item>
+        <item>8</item>
+        <item>10</item>
+        <item>12</item>
+        <item>20</item>
+        <item>100</item>
     </string-array>
 
 </resources>

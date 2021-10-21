@@ -32,6 +32,7 @@ public class CharacterRecyclerAdapter extends RecyclerView.Adapter<CharacterRecy
         populateColumnPositions();
     }
 
+
     private void populateColumnPositions() {
 
         if (mCursor != null) {
@@ -78,6 +79,11 @@ public class CharacterRecyclerAdapter extends RecyclerView.Adapter<CharacterRecy
         String  characterDescription = mCursor.getString(mCharacterDescriptionPosition);
         int id = mCursor.getInt(mIdPosition);
 
+        if(characterName.isEmpty()) {
+            holder.itemView.setVisibility(View.GONE);
+            holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
+        }
+
         //Pass in the information to holder
         holder.mCharacterName.setText(characterName);
         holder.mCharacterDescription.setText(characterDescription);
@@ -104,8 +110,8 @@ public class CharacterRecyclerAdapter extends RecyclerView.Adapter<CharacterRecy
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(mContext, CharacterActivity.class);
-                    intent.putExtra(CharacterActivity.CHARACTER_ID, mId);
+                    Intent intent = new Intent(mContext, SavedCharacterActivity.class);
+                    intent.putExtra(SavedCharacterActivity.CHARACTER_ID, mId);
                     mContext.startActivity(intent);
                 }
             });

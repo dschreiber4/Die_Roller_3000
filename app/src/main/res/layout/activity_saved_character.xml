@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".CharacterActivity">
+
+    <TextView
+        android:id="@+id/text_character_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/character_name"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        android:textSize="18sp"
+        android:focusable="true"
+        android:enabled="false"
+        android:clickable="true"
+        android:focusableInTouchMode="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/text_character_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/character_description"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        android:textSize="18sp"
+        android:focusable="true"
+        android:enabled="false"
+        android:clickable="true"
+        android:focusableInTouchMode="true"
+        app:layout_constraintEnd_toEndOf="@+id/text_character_name"
+        app:layout_constraintStart_toStartOf="@+id/text_character_name"
+        app:layout_constraintTop_toBottomOf="@+id/text_character_name"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/attacks_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Attacks:"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/text_character_description"
+        app:layout_constraintTop_toBottomOf="@+id/text_character_description" />
+
+    <Spinner
+        android:id="@+id/numSidesSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:spinnerMode="dropdown"
+        android:entries="@array/numDiceSpinner"
+        app:layout_constraintBottom_toBottomOf="@+id/d_textView"
+        app:layout_constraintLeft_toRightOf="@+id/d_textView"
+        app:layout_constraintTop_toTopOf="@+id/d_textView"
+         />
+
+    <Spinner
+        android:id="@+id/numDiceSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:spinnerMode="dropdown"
+        android:entries="@array/numDiceSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/attacks_textView"
+        />
+
+    <TextView
+        android:id="@+id/d_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="d"
+        app:layout_constraintTop_toTopOf="@+id/numDiceSpinner"
+        app:layout_constraintLeft_toRightOf="@+id/numDiceSpinner"
+        app:layout_constraintBottom_toBottomOf="@+id/numDiceSpinner" />
+
+
+    <TextView
+        android:id="@+id/resultText"
+        android:layout_width="300dp"
+        android:layout_height="260dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="240dp"
+        android:layout_marginEnd="48dp"
+        android:isScrollContainer="true"
+        android:scrollbars="vertical"
+        android:text="Results go here"
+        android:textColor="#000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_max="100dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_max="310dp" />
+
+    <Button
+        android:id="@+id/bRoll3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/roll"
+        app:layout_constraintBottom_toTopOf="@+id/resultText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/attacks_textView"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <TextView
+        android:id="@+id/underConstruction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="Under Construction. Will update soon."
+
+        android:textColor="@color/purple_500"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

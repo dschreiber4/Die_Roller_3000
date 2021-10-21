@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DieRoller3000">
         <activity
+            android:name=".SavedCharacterActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:exported="true" />
+        <activity
             android:name=".CharacterActivity"
             android:exported="true" />
         <activity
