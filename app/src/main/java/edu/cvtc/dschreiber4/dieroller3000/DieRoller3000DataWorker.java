@@ -28,13 +28,7 @@ public class DieRoller3000DataWorker {
     //Populate the db with initial data
     public void insertCharacter() {
         insertCharacter("Fatal Exception", "Lvl 9 Druid.");
-        insertCharacter("Web 1 - HTML & CSS", "Introductory HTML course");
-        insertCharacter("Programming Fundamentals", "Introductory Programming Course");
-        insertCharacter("Database 1", "Introductory Database Course");
-        insertCharacter("Object Oriented Programming", "Second Semester Programming Course using Java");
-        insertCharacter(".NET Application Development", "Second Semester Programming Course using .NET");
-        insertCharacter("Database 2", "Intermediate Database Course");
-        insertCharacter("Android Development", "Application Development Course with Android");
+        insertCharacter("Dead Magik", "Lvl 6 Necromancer");
 
 
     }

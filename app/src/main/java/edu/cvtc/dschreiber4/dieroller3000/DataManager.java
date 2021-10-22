@@ -58,14 +58,15 @@ public class DataManager {
 
         //Create a list array to return
         String[] characterColumns = {
-                CharacterInfoEntry._ID,
+
                 CharacterInfoEntry.COLUMN_CHARACTER_NAME,
-                CharacterInfoEntry.COLUMN_CHARACTER_DESCRIPTION
+                CharacterInfoEntry.COLUMN_CHARACTER_DESCRIPTION,
+                CharacterInfoEntry._ID
 
         };
 
         //Create an order field
-        String characterOrderBy = CharacterInfoEntry._ID;
+        String characterOrderBy = CharacterInfoEntry.COLUMN_CHARACTER_NAME;
 
         //Populate the cursor with the query results
         final Cursor characterCursor = db.query(CharacterInfoEntry.TABLE_NAME,

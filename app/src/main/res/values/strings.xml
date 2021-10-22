@@ -22,6 +22,10 @@
     <string name="cancel">Cancel</string>
     <string name="menu_cancel_text">menu_cancel_text</string>
     <string name="char_roll">Roll</string>
+    <string name="attacks">Attacks:</string>
+    <string name="d">d</string>
+    <string name="results">Results</string>
+    <string name="under_construction_will_update_soon">Under Construction. Will update soon.</string>
 
 
     <string-array name="num_die_spinner">
